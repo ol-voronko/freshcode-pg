@@ -75,4 +75,17 @@ RENAME COLUMN body TO description;
 
 ALTER TABLE tasks
 RENAME TO user_tasks;
+
 SELECT * FROM user_tasks;
+
+--додати колонку вага до таблиці users 
+--numeric(4,1) default (height-1)*100
+ALTER TABLE users
+ADD COLUMN weight numeric(4,1) ;
+
+UPDATE users
+SET weight=(height-1)*100;
+
+ALTER TABLE users
+ALTER COLUMN weight SET NOT NULL;
+SELECT * FROM users;
